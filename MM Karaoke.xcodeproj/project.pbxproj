@@ -12,6 +12,8 @@
 		F753DE731FEBFC51003AE861 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F753DE711FEBFC51003AE861 /* Main.storyboard */; };
 		F753DE751FEBFC51003AE861 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F753DE741FEBFC51003AE861 /* Assets.xcassets */; };
 		F753DE781FEBFC51003AE861 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F753DE761FEBFC51003AE861 /* LaunchScreen.storyboard */; };
+		F753DE801FEBFF65003AE861 /* SongTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F753DE7F1FEBFF65003AE861 /* SongTableViewCell.swift */; };
+		F753DE821FEC05C9003AE861 /* RecodVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F753DE811FEC05C9003AE861 /* RecodVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		F753DE741FEBFC51003AE861 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F753DE771FEBFC51003AE861 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F753DE791FEBFC51003AE861 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F753DE7F1FEBFF65003AE861 /* SongTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongTableViewCell.swift; sourceTree = "<group>"; };
+		F753DE811FEC05C9003AE861 /* RecodVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecodVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +64,8 @@
 				F753DE741FEBFC51003AE861 /* Assets.xcassets */,
 				F753DE761FEBFC51003AE861 /* LaunchScreen.storyboard */,
 				F753DE791FEBFC51003AE861 /* Info.plist */,
+				F753DE7F1FEBFF65003AE861 /* SongTableViewCell.swift */,
+				F753DE811FEC05C9003AE861 /* RecodVC.swift */,
 			);
 			path = "MM Karaoke";
 			sourceTree = "<group>";
@@ -136,7 +142,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F753DE801FEBFF65003AE861 /* SongTableViewCell.swift in Sources */,
 				F753DE701FEBFC51003AE861 /* ViewController.swift in Sources */,
+				F753DE821FEC05C9003AE861 /* RecodVC.swift in Sources */,
 				F753DE6E1FEBFC51003AE861 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -277,6 +285,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = PG98TTFS9P;
 				INFOPLIST_FILE = "MM Karaoke/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.vansapha.MM-Karaoke";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -292,6 +301,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = PG98TTFS9P;
 				INFOPLIST_FILE = "MM Karaoke/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.vansapha.MM-Karaoke";
 				PRODUCT_NAME = "$(TARGET_NAME)";
