@@ -24,6 +24,7 @@ class Auth {
                     if let data = result as? Dictionary<String, AnyObject> {
                         if let token = data["token"] as? String {
                             ShareInstance.App.TOKEN_KEY = token
+                            print("Token: ", ShareInstance.App.TOKEN_KEY)
                         }
                     }
                 }
@@ -31,12 +32,13 @@ class Auth {
         }
     }
     
-    func fetchData(api: String, body: Dictionary<String, String>, header: Dictionary<String, String>, completion: @escaping CompletionHandler) {
+    func fetchData(api: String, body: Dictionary<String, String>, header: Dictionary<String, String>) {
         Alamofire.request(api, method: .post, parameters: body, encoding: JSONEncoding.default, headers: header).responseJSON { (response) in
             if response.result.error == nil {
-                completion(true)
+                print("Header: ", header)
+                print("Song list: ", response.result.value ?? (Any).self)
             }else {
-                completion(false)
+                debugPrint(response.result.error as Any)
             }
         }
     }

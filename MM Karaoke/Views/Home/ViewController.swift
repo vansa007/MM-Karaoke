@@ -25,8 +25,10 @@ class ViewController: UIViewController {
         initCustomNavigation()
         self.myTableView.refreshControl = self.refreshController
         self.myTableView.refreshControl?.addTarget(self, action: #selector(self.pullToRefresh), for: .valueChanged)
-        
-        songViewModel.getToken(id: "9876543210")
+        ShareInstance.App.USER_ID = "9876543210"
+        if ShareInstance.App.TOKEN_KEY.isEmpty {
+            songViewModel.getToken(id: ShareInstance.App.USER_ID)
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -44,12 +46,14 @@ class ViewController: UIViewController {
     }
     
     @objc func pullToRefresh() {
-        self.fetchData(url: apiAllSongsKey) { (status) in
-            self.refreshController.endRefreshing()
-            if status {
-                self.myTableView.reloadData()
-            }
-        }
+//        self.fetchData(url: apiAllSongsKey) { (status) in
+//            self.refreshController.endRefreshing()
+//            if status {
+//                self.myTableView.reloadData()
+//            }
+//        }
+        self.songViewModel.getAllSongs()
+        self.refreshController.endRefreshing()
     }
     
     func fetchData(url: String, handler: @escaping CompletionHandler) {
