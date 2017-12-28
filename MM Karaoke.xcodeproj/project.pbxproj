@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		391C8C181FF4CFE9008AC720 /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = 391C8C171FF4CFE9008AC720 /* Song.swift */; };
+		391C8C1A1FF4D34B008AC720 /* songInstance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 391C8C191FF4D34B008AC720 /* songInstance.swift */; };
+		391C8C1C1FF4D477008AC720 /* SongRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 391C8C1B1FF4D477008AC720 /* SongRequest.swift */; };
+		391C8C1E1FF4D4CF008AC720 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 391C8C1D1FF4D4CF008AC720 /* Constant.swift */; };
+		391C8C201FF4D7B4008AC720 /* Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 391C8C1F1FF4D7B4008AC720 /* Auth.swift */; };
+		391C8C221FF4E60B008AC720 /* SongViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 391C8C211FF4E60B008AC720 /* SongViewModel.swift */; };
+		72FF139255B6AB767079631A /* Pods_MM_Karaoke.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99418629F1B4679CC2B1409D /* Pods_MM_Karaoke.framework */; };
 		F753DE6E1FEBFC51003AE861 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F753DE6D1FEBFC51003AE861 /* AppDelegate.swift */; };
 		F753DE701FEBFC51003AE861 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F753DE6F1FEBFC51003AE861 /* ViewController.swift */; };
 		F753DE731FEBFC51003AE861 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F753DE711FEBFC51003AE861 /* Main.storyboard */; };
@@ -17,6 +24,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		36C0C0CCCEA2DA3BC66259EE /* Pods-MM Karaoke.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MM Karaoke.release.xcconfig"; path = "Pods/Target Support Files/Pods-MM Karaoke/Pods-MM Karaoke.release.xcconfig"; sourceTree = "<group>"; };
+		391C8C171FF4CFE9008AC720 /* Song.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
+		391C8C191FF4D34B008AC720 /* songInstance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = songInstance.swift; sourceTree = "<group>"; };
+		391C8C1B1FF4D477008AC720 /* SongRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongRequest.swift; sourceTree = "<group>"; };
+		391C8C1D1FF4D4CF008AC720 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		391C8C1F1FF4D7B4008AC720 /* Auth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Auth.swift; sourceTree = "<group>"; };
+		391C8C211FF4E60B008AC720 /* SongViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongViewModel.swift; sourceTree = "<group>"; };
+		99418629F1B4679CC2B1409D /* Pods_MM_Karaoke.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MM_Karaoke.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EBF0BFF42FEB55E43CBCF84F /* Pods-MM Karaoke.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MM Karaoke.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MM Karaoke/Pods-MM Karaoke.debug.xcconfig"; sourceTree = "<group>"; };
 		F753DE6A1FEBFC51003AE861 /* MM Karaoke.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MM Karaoke.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F753DE6D1FEBFC51003AE861 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F753DE6F1FEBFC51003AE861 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -33,17 +49,102 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				72FF139255B6AB767079631A /* Pods_MM_Karaoke.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		391C8C101FF4B00F008AC720 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				391C8C1B1FF4D477008AC720 /* SongRequest.swift */,
+				391C8C1F1FF4D7B4008AC720 /* Auth.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		391C8C111FF4B019008AC720 /* Objects */ = {
+			isa = PBXGroup;
+			children = (
+				391C8C171FF4CFE9008AC720 /* Song.swift */,
+				391C8C191FF4D34B008AC720 /* songInstance.swift */,
+			);
+			path = Objects;
+			sourceTree = "<group>";
+		};
+		391C8C121FF4B025008AC720 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				391C8C211FF4E60B008AC720 /* SongViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		391C8C131FF4B036008AC720 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				391C8C161FF4B116008AC720 /* Record */,
+				391C8C151FF4B0F6008AC720 /* Home */,
+				F753DE711FEBFC51003AE861 /* Main.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		391C8C141FF4B042008AC720 /* Supporter */ = {
+			isa = PBXGroup;
+			children = (
+				F753DE741FEBFC51003AE861 /* Assets.xcassets */,
+				F753DE761FEBFC51003AE861 /* LaunchScreen.storyboard */,
+				F753DE6D1FEBFC51003AE861 /* AppDelegate.swift */,
+				F753DE791FEBFC51003AE861 /* Info.plist */,
+				391C8C1D1FF4D4CF008AC720 /* Constant.swift */,
+			);
+			path = Supporter;
+			sourceTree = "<group>";
+		};
+		391C8C151FF4B0F6008AC720 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				F753DE6F1FEBFC51003AE861 /* ViewController.swift */,
+				F753DE7F1FEBFF65003AE861 /* SongTableViewCell.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		391C8C161FF4B116008AC720 /* Record */ = {
+			isa = PBXGroup;
+			children = (
+				F753DE811FEC05C9003AE861 /* RecodVC.swift */,
+			);
+			path = Record;
+			sourceTree = "<group>";
+		};
+		70A3A9894ED242F43D68B1CF /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				EBF0BFF42FEB55E43CBCF84F /* Pods-MM Karaoke.debug.xcconfig */,
+				36C0C0CCCEA2DA3BC66259EE /* Pods-MM Karaoke.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		80AF2BDC8271C5C417A0F376 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				99418629F1B4679CC2B1409D /* Pods_MM_Karaoke.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		F753DE611FEBFC51003AE861 = {
 			isa = PBXGroup;
 			children = (
 				F753DE6C1FEBFC51003AE861 /* MM Karaoke */,
 				F753DE6B1FEBFC51003AE861 /* Products */,
+				70A3A9894ED242F43D68B1CF /* Pods */,
+				80AF2BDC8271C5C417A0F376 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,14 +159,11 @@
 		F753DE6C1FEBFC51003AE861 /* MM Karaoke */ = {
 			isa = PBXGroup;
 			children = (
-				F753DE6D1FEBFC51003AE861 /* AppDelegate.swift */,
-				F753DE6F1FEBFC51003AE861 /* ViewController.swift */,
-				F753DE711FEBFC51003AE861 /* Main.storyboard */,
-				F753DE741FEBFC51003AE861 /* Assets.xcassets */,
-				F753DE761FEBFC51003AE861 /* LaunchScreen.storyboard */,
-				F753DE791FEBFC51003AE861 /* Info.plist */,
-				F753DE7F1FEBFF65003AE861 /* SongTableViewCell.swift */,
-				F753DE811FEC05C9003AE861 /* RecodVC.swift */,
+				391C8C141FF4B042008AC720 /* Supporter */,
+				391C8C131FF4B036008AC720 /* Views */,
+				391C8C121FF4B025008AC720 /* ViewModels */,
+				391C8C111FF4B019008AC720 /* Objects */,
+				391C8C101FF4B00F008AC720 /* Models */,
 			);
 			path = "MM Karaoke";
 			sourceTree = "<group>";
@@ -77,9 +175,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F753DE7C1FEBFC51003AE861 /* Build configuration list for PBXNativeTarget "MM Karaoke" */;
 			buildPhases = (
+				3A6D4779A1A04C74BFF145D1 /* [CP] Check Pods Manifest.lock */,
 				F753DE661FEBFC51003AE861 /* Sources */,
 				F753DE671FEBFC51003AE861 /* Frameworks */,
 				F753DE681FEBFC51003AE861 /* Resources */,
+				F6A25F5A008CC59464081043 /* [CP] Embed Pods Frameworks */,
+				8F3BA17D3B5F9B6BBD7A1C01 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -137,6 +238,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		3A6D4779A1A04C74BFF145D1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		8F3BA17D3B5F9B6BBD7A1C01 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MM Karaoke/Pods-MM Karaoke-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F6A25F5A008CC59464081043 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MM Karaoke/Pods-MM Karaoke-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		F753DE661FEBFC51003AE861 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -145,7 +294,13 @@
 				F753DE801FEBFF65003AE861 /* SongTableViewCell.swift in Sources */,
 				F753DE701FEBFC51003AE861 /* ViewController.swift in Sources */,
 				F753DE821FEC05C9003AE861 /* RecodVC.swift in Sources */,
+				391C8C1E1FF4D4CF008AC720 /* Constant.swift in Sources */,
 				F753DE6E1FEBFC51003AE861 /* AppDelegate.swift in Sources */,
+				391C8C181FF4CFE9008AC720 /* Song.swift in Sources */,
+				391C8C1A1FF4D34B008AC720 /* songInstance.swift in Sources */,
+				391C8C1C1FF4D477008AC720 /* SongRequest.swift in Sources */,
+				391C8C201FF4D7B4008AC720 /* Auth.swift in Sources */,
+				391C8C221FF4E60B008AC720 /* SongViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -280,11 +435,12 @@
 		};
 		F753DE7D1FEBFC51003AE861 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EBF0BFF42FEB55E43CBCF84F /* Pods-MM Karaoke.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = PG98TTFS9P;
-				INFOPLIST_FILE = "MM Karaoke/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/MM Karaoke/Supporter/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.vansapha.MM-Karaoke";
@@ -296,11 +452,12 @@
 		};
 		F753DE7E1FEBFC51003AE861 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 36C0C0CCCEA2DA3BC66259EE /* Pods-MM Karaoke.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = PG98TTFS9P;
-				INFOPLIST_FILE = "MM Karaoke/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/MM Karaoke/Supporter/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.vansapha.MM-Karaoke";

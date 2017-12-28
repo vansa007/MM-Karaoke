@@ -15,7 +15,7 @@ class SongTableViewCell: UITableViewCell {
     @IBOutlet weak var songArtist: UILabel!
     
     func configurationCell(icon: String, song: String, artist: String) {
-        iconMusic.downloadedFrom(link: icon)
+        //iconMusic.downloadedFrom(link: icon)
         songTitle.text = song
         songArtist.text = artist
     }

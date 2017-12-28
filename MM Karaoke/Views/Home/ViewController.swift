@@ -7,56 +7,64 @@
 //
 
 import UIKit
+import Alamofire
 
 class ViewController: UIViewController {
     
     @IBOutlet weak var myTableView: UITableView!
-    let dataSource = [
-        [
-            "SONG_TITLE" : "Wedding dress",
-            "ARTIST" : "Tae Yang",
-            "AVATAR" : "https://pbs.twimg.com/profile_images/488363262220591106/7_gkRnzP.jpeg"
-        ],
-        [
-            "SONG_TITLE" : "Mad",
-            "ARTIST" : "Ne Yo",
-            "AVATAR" : "http://www.rap-up.com/app/uploads/2014/12/ne-yo.jpg"
-        ],
-        [
-            "SONG_TITLE" : "Take me to your heart",
-            "ARTIST" : "Michael learn to rock",
-            "AVATAR" : "https://4.bp.blogspot.com/-vW4rmDzhtuE/Vwnw9DRaVmI/AAAAAAAAFAU/6jFQaEhXfSMklEowN6Ohn_fwoiCtu16iA/s1600/5511988_20131017045918.png"
-        ],
-        [
-            "SONG_TITLE" : "Look at only me",
-            "ARTIST" : "Tae Yang",
-            "AVATAR" : "https://pbs.twimg.com/profile_images/488363262220591106/7_gkRnzP.jpeg"
-        ],
-        [
-            "SONG_TITLE" : "The way you look at me",
-            "ARTIST" : "Christian Beautista",
-            "AVATAR" : "http://lifestyle.inquirer.net/files/2016/04/christian-bautista-picture.jpg"
-        ],
-        [
-            "SONG_TITLE" : "With you",
-            "ARTIST" : "Tae Yang",
-            "AVATAR" : "https://pbs.twimg.com/profile_images/488363262220591106/7_gkRnzP.jpeg"
-        ]
-    ]
+    @IBOutlet weak var playerViewBottomCon: NSLayoutConstraint!
+    var dataSource = [[String:String]]()
+    let apiAllSongsKey = "http://192.168.2.4/mmk/index.php/api/listallsongs"
+    typealias CompletionHandler = (_ Success: Bool) -> ()
+    var refreshController = UIRefreshControl()
+    
+    let songViewModel = SongViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         initCustomNavigation()
+        self.myTableView.refreshControl = self.refreshController
+        self.myTableView.refreshControl?.addTarget(self, action: #selector(self.pullToRefresh), for: .valueChanged)
+        
+        songViewModel.getToken(id: "9876543210")
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        myTableView.reloadData()
+//        self.fetchData(url: apiAllSongsKey) { (status) in
+//            if status {
+//                self.myTableView.reloadData()
+//            }
+//        }
     }
     
     func initCustomNavigation() {
         let myImageView = UIImageView(image: #imageLiteral(resourceName: "mmlogo"))
         myImageView.contentMode = .scaleAspectFit
         self.navigationItem.titleView = myImageView
+    }
+    
+    @objc func pullToRefresh() {
+        self.fetchData(url: apiAllSongsKey) { (status) in
+            self.refreshController.endRefreshing()
+            if status {
+                self.myTableView.reloadData()
+            }
+        }
+    }
+    
+    func fetchData(url: String, handler: @escaping CompletionHandler) {
+        Alamofire.request(url).responseJSON { (response) in
+            if response.result.error == nil {
+                guard let json = response.result.value as? Dictionary<String, AnyObject> else { return }
+                if let data = json["data"] as? Array<Dictionary<String, String>> {
+                    self.dataSource = data
+                    print("response data: ", data)
+                }
+                handler(true)
+            }else {
+                handler(false)
+            }
+        }
     }
 
     @IBAction func playMusicAction(_ sender: UIButton) {
@@ -70,10 +78,10 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as? SongTableViewCell {
-            let icon = dataSource[indexPath.row]["AVATAR"]
-            let song = dataSource[indexPath.row]["SONG_TITLE"]
-            let artist = dataSource[indexPath.row]["ARTIST"]
-            cell.configurationCell(icon: icon!, song: song!, artist: artist!)
+            let icon = ""//dataSource[indexPath.row]["AVATAR"]
+            let song = dataSource[indexPath.row]["song_title"]
+            let artist = dataSource[indexPath.row]["song_artist"]
+            cell.configurationCell(icon: icon, song: song!, artist: artist!)
             return cell
         }
         return UITableViewCell()
