@@ -8,12 +8,15 @@
 
 import UIKit
 import Alamofire
+import RxSwift
+import RxCocoa
 
 class ViewController: UIViewController {
     
     @IBOutlet weak var myTableView: UITableView!
     @IBOutlet weak var playerViewBottomCon: NSLayoutConstraint!
     var dataSource = [[String:String]]()
+    var datax : Observable<[Song]>!
     let apiAllSongsKey = "http://192.168.2.4/mmk/index.php/api/listallsongs"
     typealias CompletionHandler = (_ Success: Bool) -> ()
     var refreshController = UIRefreshControl()
@@ -54,6 +57,15 @@ class ViewController: UIViewController {
 //        }
         self.songViewModel.getAllSongs()
         self.refreshController.endRefreshing()
+    }
+    
+    func bindViewAndViewModel() {
+        let myData = songViewModel.data.asObservable()
+        myData.bind(to: myTableView.rx.items(cellIdentifier: "cell")) { row , song, cell in
+            if let cellToUse = cell as? SongTableViewCell {
+                cellToUse.songTitle.text = ""
+            }
+        }
     }
     
     func fetchData(url: String, handler: @escaping CompletionHandler) {

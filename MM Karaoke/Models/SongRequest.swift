@@ -14,8 +14,10 @@ class SongRequest {
     static let manager = SongRequest()
     private init (){}
     
-    func getAllSongsModel() {
-        Auth.manager.fetchData(api: getApiKey(base: ShareInstance.APIKEY.BASE_URL, apiName: ShareInstance.APIKEY.LIST_ALL_SONGS), body: [:], header: ShareInstance.headerSecurity)
+    func getAllSongsModel(callBack: @escaping (SongInstance) -> Void) {
+        Auth.manager.fetchData(api: getApiKey(base: ShareInstance.APIKEY.BASE_URL, apiName: ShareInstance.APIKEY.LIST_ALL_SONGS), body: [:], header: ShareInstance.headerSecurity) { (data: SongInstance) in
+            callBack(data)
+        }
     }
     
     func getApiKey(base: String, apiName: String) -> String {

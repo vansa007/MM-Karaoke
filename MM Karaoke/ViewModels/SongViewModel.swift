@@ -18,6 +18,8 @@ struct SongViewModel {
     }
     
     func getAllSongs() {
-        SongRequest.manager.getAllSongsModel()
+        SongRequest.manager.getAllSongsModel() { (data: SongInstance) in
+            self.data.value = data
+        }
     }
 }
