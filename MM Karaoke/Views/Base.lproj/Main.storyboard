@@ -26,16 +26,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="KCB-XA-xLP">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="KCB-XA-xLP">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="498"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <inset key="separatorInset" minX="60" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="cell" rowHeight="60" id="LYX-C0-Xhi" customClass="SongTableViewCell" customModule="MM_Karaoke" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="listsongcell" rowHeight="60" id="LYX-C0-Xhi" customClass="SongTableViewCell" customModule="MM_Karaoke" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="320" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="LYX-C0-Xhi" id="Sda-CR-I8y">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="59.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The way you look at me" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c7W-fR-A9N">
@@ -52,6 +52,17 @@
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="50" id="dcB-05-g89"/>
                                                     </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                            <real key="value" value="6"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                            <real key="value" value="1"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                            <color key="value" white="0.0" alpha="0.25" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cristian Beautista" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jdw-Ga-3AW">
                                                     <rect key="frame" x="63" y="30" width="257" height="21"/>
@@ -62,21 +73,37 @@
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="21R-6M-8Tx" userLabel="line">
+                                                    <rect key="frame" x="65" y="59" width="255" height="1"/>
+                                                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="1" id="fBw-8H-CEW"/>
+                                                    </constraints>
+                                                </view>
                                             </subviews>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="21R-6M-8Tx" secondAttribute="trailing" id="0y6-M0-Ebh"/>
                                                 <constraint firstAttribute="trailing" secondItem="jdw-Ga-3AW" secondAttribute="trailing" id="7Il-rY-Knq"/>
                                                 <constraint firstItem="jdw-Ga-3AW" firstAttribute="top" secondItem="c7W-fR-A9N" secondAttribute="bottom" constant="4" id="7sG-0t-bIf"/>
                                                 <constraint firstItem="jdw-Ga-3AW" firstAttribute="leading" secondItem="c6R-aa-5L4" secondAttribute="trailing" constant="8" id="ARC-Nj-RBO"/>
                                                 <constraint firstAttribute="bottom" secondItem="jdw-Ga-3AW" secondAttribute="bottom" constant="8.5" id="Ac0-T3-d5T"/>
+                                                <constraint firstItem="21R-6M-8Tx" firstAttribute="leading" secondItem="Sda-CR-I8y" secondAttribute="leading" constant="65" id="HhX-X9-IB4"/>
                                                 <constraint firstItem="c7W-fR-A9N" firstAttribute="top" secondItem="Sda-CR-I8y" secondAttribute="top" constant="5" id="Otp-Xe-nW9"/>
                                                 <constraint firstAttribute="bottom" secondItem="c6R-aa-5L4" secondAttribute="bottom" constant="5" id="Sab-Dl-Cqi"/>
                                                 <constraint firstAttribute="trailing" secondItem="c7W-fR-A9N" secondAttribute="trailing" id="YsC-gx-DhZ"/>
                                                 <constraint firstItem="c6R-aa-5L4" firstAttribute="leading" secondItem="Sda-CR-I8y" secondAttribute="leading" constant="5" id="cFN-Gd-MFw"/>
                                                 <constraint firstItem="c7W-fR-A9N" firstAttribute="leading" secondItem="c6R-aa-5L4" secondAttribute="trailing" constant="8" id="cWM-fJ-5Fi"/>
                                                 <constraint firstItem="c6R-aa-5L4" firstAttribute="top" secondItem="Sda-CR-I8y" secondAttribute="top" constant="5" id="flq-ic-toX"/>
+                                                <constraint firstAttribute="bottom" secondItem="21R-6M-8Tx" secondAttribute="bottom" id="mro-SN-srz"/>
                                             </constraints>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                    <color key="value" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" white="0.92364211312857136" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         <connections>
                                             <outlet property="iconMusic" destination="c6R-aa-5L4" id="Pt9-cn-IkU"/>
                                             <outlet property="songArtist" destination="jdw-Ga-3AW" id="fO4-n8-2YK"/>
@@ -99,7 +126,7 @@
                                             <constraint firstAttribute="height" constant="1" id="fX4-D5-0wa"/>
                                         </constraints>
                                     </view>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wooden" translatesAutoresizingMaskIntoConstraints="NO" id="kcl-yS-ijl">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="playerview" translatesAutoresizingMaskIntoConstraints="NO" id="kcl-yS-ijl">
                                         <rect key="frame" x="0.0" y="1" width="320" height="69"/>
                                     </imageView>
                                     <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="MA5-vB-9Me">
@@ -185,7 +212,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" id="alc-YP-E0f"/>
+                    <navigationItem key="navigationItem" id="alc-YP-E0f">
+                        <nil key="title"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="myTableView" destination="KCB-XA-xLP" id="6Tf-Gl-Uup"/>
                         <outlet property="playerViewBottomCon" destination="uka-Sn-iDE" id="bZT-l4-hyq"/>
@@ -253,6 +282,6 @@
         <image name="christianbautista" width="410" height="410"/>
         <image name="microphone" width="194" height="259"/>
         <image name="pause-music" width="512" height="512"/>
-        <image name="wooden" width="620" height="171"/>
+        <image name="playerview" width="640" height="340"/>
     </resources>
 </document>

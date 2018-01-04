@@ -19,5 +19,10 @@ class SongTableViewCell: UITableViewCell {
         songTitle.text = song
         songArtist.text = artist
     }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        contentView.frame = UIEdgeInsetsInsetRect(contentView.frame, UIEdgeInsetsMake(0, 5, 0, 5))
+    }
 
 }

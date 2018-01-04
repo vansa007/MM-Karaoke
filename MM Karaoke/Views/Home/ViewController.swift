@@ -7,18 +7,14 @@
 //
 
 import UIKit
-import Alamofire
-import RxSwift
-import RxCocoa
+//import Alamofire
+//import RxSwift
+//import RxCocoa
 
 class ViewController: UIViewController {
     
     @IBOutlet weak var myTableView: UITableView!
     @IBOutlet weak var playerViewBottomCon: NSLayoutConstraint!
-    var dataSource = [[String:String]]()
-    var datax : Observable<[Song]>!
-    let apiAllSongsKey = "http://192.168.2.4/mmk/index.php/api/listallsongs"
-    typealias CompletionHandler = (_ Success: Bool) -> ()
     var refreshController = UIRefreshControl()
     
     let songViewModel = SongViewModel()
@@ -35,11 +31,7 @@ class ViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-//        self.fetchData(url: apiAllSongsKey) { (status) in
-//            if status {
-//                self.myTableView.reloadData()
-//            }
-//        }
+        
     }
     
     func initCustomNavigation() {
@@ -49,36 +41,16 @@ class ViewController: UIViewController {
     }
     
     @objc func pullToRefresh() {
-//        self.fetchData(url: apiAllSongsKey) { (status) in
-//            self.refreshController.endRefreshing()
-//            if status {
-//                self.myTableView.reloadData()
-//            }
-//        }
-        self.songViewModel.getAllSongs()
-        self.refreshController.endRefreshing()
+        bindViewAndViewModel()
     }
     
     func bindViewAndViewModel() {
-        let myData = songViewModel.data.asObservable()
-        myData.bind(to: myTableView.rx.items(cellIdentifier: "cell")) { row , song, cell in
-            if let cellToUse = cell as? SongTableViewCell {
-                cellToUse.songTitle.text = ""
-            }
-        }
-    }
-    
-    func fetchData(url: String, handler: @escaping CompletionHandler) {
-        Alamofire.request(url).responseJSON { (response) in
-            if response.result.error == nil {
-                guard let json = response.result.value as? Dictionary<String, AnyObject> else { return }
-                if let data = json["data"] as? Array<Dictionary<String, String>> {
-                    self.dataSource = data
-                    print("response data: ", data)
-                }
-                handler(true)
+        songViewModel.getAllSongs { (error) in
+            self.refreshController.endRefreshing()
+            if error == nil {
+                self.myTableView.reloadData()
             }else {
-                handler(false)
+                self.setAlertViewController(myTitle: "Warning", myMessage: "Network error, can not connect.")
             }
         }
     }
@@ -88,45 +60,24 @@ class ViewController: UIViewController {
     }
 }
 
-extension ViewController: UITableViewDelegate, UITableViewDataSource {
+extension ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dataSource.count
+        return songViewModel.instance.songItem.count
     }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as? SongTableViewCell {
-            let icon = ""//dataSource[indexPath.row]["AVATAR"]
-            let song = dataSource[indexPath.row]["song_title"]
-            let artist = dataSource[indexPath.row]["song_artist"]
-            cell.configurationCell(icon: icon, song: song!, artist: artist!)
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "listsongcell") as? SongTableViewCell {
+            cell.songTitle.text = songViewModel.instance.songItem[indexPath.row].songTitle
+            cell.songArtist.text = songViewModel.instance.songItem[indexPath.row].songArtist
             return cell
         }
         return UITableViewCell()
     }
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 60
-    }
+    
+    
 }
 
-extension UIImageView {
-    func downloadedFrom(url: URL, contentMode mode: UIViewContentMode = .scaleAspectFit) {
-        contentMode = mode
-        URLSession.shared.dataTask(with: url) { data, response, error in
-            guard
-                let httpURLResponse = response as? HTTPURLResponse, httpURLResponse.statusCode == 200,
-                let mimeType = response?.mimeType, mimeType.hasPrefix("image"),
-                let data = data, error == nil,
-                let image = UIImage(data: data)
-                else { return }
-            DispatchQueue.main.async() {
-                self.image = image
-            }
-            }.resume()
-    }
-    func downloadedFrom(link: String, contentMode mode: UIViewContentMode = .scaleAspectFit) {
-        guard let url = URL(string: link) else { return }
-        downloadedFrom(url: url, contentMode: mode)
-    }
-}
+
 
 
 

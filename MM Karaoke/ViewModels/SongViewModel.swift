@@ -7,9 +7,10 @@
 //
 
 import RxSwift
+import ObjectMapper
 
-struct SongViewModel {
-    let data = Variable<SongInstance>(SongInstance())
+class SongViewModel {
+    var instance = SongInstance()
     
     init() {}
     
@@ -17,9 +18,17 @@ struct SongViewModel {
         Auth.manager.requestToken(id: id)
     }
     
-    func getAllSongs() {
-        SongRequest.manager.getAllSongsModel() { (data: SongInstance) in
-            self.data.value = data
+    func getAllSongs(completion: @escaping (Error?)->Void) {
+        Auth.manager.fetchData(api: ShareInstance.APIKEY.LIST_ALL_SONGS, body: [:], header: ShareInstance.headerSecurity) { (response) in
+            if response.response?.statusCode == 200 {
+                guard let json = response.result.value as? Dictionary<String, AnyObject> else { return }
+                let myData: SongInstance = Mapper<SongInstance>()
+                    .map(JSONString: String(data: try! JSONSerialization.data(withJSONObject: json, options: []), encoding: .utf8)!)!
+                self.instance = myData
+                completion(nil)
+            }else {
+                completion(response.result.error)
+            }
         }
     }
 }

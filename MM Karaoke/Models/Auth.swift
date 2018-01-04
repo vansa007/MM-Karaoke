@@ -32,17 +32,13 @@ class Auth {
         }
     }
     
-    func fetchData(api: String, body: Dictionary<String, String>, header: Dictionary<String, String>, callBack: @escaping (SongInstance)->Void) {
-        Alamofire.request(api, method: .post, parameters: body, encoding: JSONEncoding.default, headers: header).responseJSON { (response) in
-            if response.response?.statusCode == 200 {
-                if api == ShareInstance.APIKEY.LIST_ALL_SONGS {
-                    let data: SongInstance = Mapper<SongInstance>()
-                        .map(JSONString: String(data: try! JSONSerialization.data(withJSONObject: response.result.value!, options: []), encoding: .utf8)!)!
-                    callBack(data)
-                }
-            }else {
-                print(response.result.value!)
-            }
+    func fetchData(api: String, body: Dictionary<String, String>, header: Dictionary<String, String>, callBack: @escaping (DataResponse<Any>)->Void) {
+        Alamofire.request(getApiKey(base: ShareInstance.APIKEY.BASE_URL, apiName: api), method: .post, parameters: body, encoding: JSONEncoding.default, headers: header).responseJSON { (response) in
+            callBack(response)
         }
+    }
+    
+    func getApiKey(base: String, apiName: String) -> String {
+        return base+apiName
     }
 }
