@@ -31,6 +31,7 @@
 		391C8C211FF4E60B008AC720 /* SongViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongViewModel.swift; sourceTree = "<group>"; };
 		99418629F1B4679CC2B1409D /* Pods_MM_Karaoke.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MM_Karaoke.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBF0BFF42FEB55E43CBCF84F /* Pods-MM Karaoke.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MM Karaoke.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MM Karaoke/Pods-MM Karaoke.debug.xcconfig"; sourceTree = "<group>"; };
+		F70F98E51FFE885E00205A45 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F753DE6A1FEBFC51003AE861 /* MM Karaoke.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MM Karaoke.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F753DE6D1FEBFC51003AE861 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F753DE6F1FEBFC51003AE861 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -299,6 +300,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				F753DE721FEBFC51003AE861 /* Base */,
+				F70F98E51FFE885E00205A45 /* en */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
